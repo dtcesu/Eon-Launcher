@@ -15,17 +15,16 @@ class EAC
         if (!Definitions.bEnableEAC)
             return;
 
-        switch (Operation)
+        if (Operation == EACOperation.Initialize)
         {
-            case EACOperation.Initialize:
-                await InitializeComponent();
-                break;
+            await InitializeComponent();
+        }
 
-            case EACOperation.Installation:
-                await DeleteFiles();
-                await DownloadFiles();
-                await ExtractArchive();
-                break;
+        if (Operation == EACOperation.Installation)
+        {
+            await DeleteFiles();
+            await DownloadFiles();
+            await ExtractArchive();
         }
     }
 

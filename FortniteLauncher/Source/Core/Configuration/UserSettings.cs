@@ -17,24 +17,15 @@ class UserSettings
 
     public static void LoadSettings()
     {
-        try
+        if (File.Exists(SaveFile))
         {
-            if (File.Exists(SaveFile))
-            {
-                var Json = File.ReadAllText(SaveFile);
-                GlobalSettings.Options = IsValidJson(Json) ? JsonConvert.DeserializeObject<AppConfig>(Json) : GetDefaultConfig();
-            }
-            else
-            {
-                GlobalSettings.Options = GetDefaultConfig();
-                SaveSettings();
-            }
+            var Json = File.ReadAllText(SaveFile);
+            GlobalSettings.Options = IsValidJson(Json) ? JsonConvert.DeserializeObject<AppConfig>(Json) : GetDefaultConfig();
+            return;
         }
-        catch (Exception)
-        {
-            GlobalSettings.Options = GetDefaultConfig();
-            SaveSettings();
-        }
+
+        GlobalSettings.Options = GetDefaultConfig();
+        SaveSettings();
     }
 
     private static bool IsValidJson(string Json)

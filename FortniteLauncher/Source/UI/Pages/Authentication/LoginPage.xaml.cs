@@ -97,13 +97,13 @@ namespace FortniteLauncher.Pages
                     Action = "AutoLogin",
                     Status = Response.Status,
                     Username = GlobalSettings.Options.Username ?? "Player",
-                    SkinUrl = GlobalSettings.Options.SkinUrl ?? "https://cdn.eonfn.dev/EonS17.png",
+                    SkinUrl = GlobalSettings.Options.SkinUrl ?? $"{Definitions.CDN_URL}/EonS17.png",
                     DownloadUrl = ProjectDefinitions.DownloadBuildURL
                 });
 
                 if (Response.Status == "Success")
                 {
-                    await Task.Delay(2000);
+                    await Task.Delay(2500);
                     MainWindow.ShellFrame.Navigate(typeof(MainShellPage));
                 }
                 return;
@@ -132,7 +132,7 @@ namespace FortniteLauncher.Pages
                 Action = "LoginResponse",
                 Status = Response.Status,
                 Username = GlobalSettings.Options.Username ?? "Player",
-                SkinUrl = GlobalSettings.Options.SkinUrl ?? "https://cdn.eonfn.dev/EonS17.png",
+                SkinUrl = GlobalSettings.Options.SkinUrl ?? $"{Definitions.CDN_URL}/EonS17.png",
                 DownloadUrl = ProjectDefinitions.DownloadBuildURL
             });
 
@@ -151,7 +151,7 @@ namespace FortniteLauncher.Pages
             try
             {
                 string Json = JsonSerializer.Serialize(Data);
-                string Script = 
+                string Script =
                 $@"
                     if (window.chrome && window.chrome.webview) {{
                         window.dispatchEvent(new MessageEvent('message', {{ 

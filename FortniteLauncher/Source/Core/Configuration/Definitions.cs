@@ -1,8 +1,8 @@
 ﻿class Definitions
 {
     // API Endpoints
-    public const string CurrentVersion = "1.3.3";
-    public const string BaseURL = "https://services.eonfn.dev";
+    public const string CurrentVersion = "1.3.4";
+    public const string BaseURL = "https://services.eonfn.net";
     public const string CDN_URL = "https://cdn.eonfn.dev";
 
     // Application Settings
