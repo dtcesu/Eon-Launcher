@@ -27,6 +27,8 @@ class Authenticator
 
             if (Response.Status == VerifyLoginStatus.Success.ToString())
             {
+                EonRPC.UpdatePresence();
+
                 GlobalSettings.Options.Username = Response.Username;
                 GlobalSettings.Options.Email = Response.Email;
                 GlobalSettings.Options.SkinUrl = Response.Skin;
