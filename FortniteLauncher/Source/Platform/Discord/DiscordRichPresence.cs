@@ -34,7 +34,7 @@ class EonRPC
             Assets = new Assets
             {
                 LargeImageKey = "fn17",
-                LargeImageText = "Eon"
+                LargeImageText = string.IsNullOrEmpty(GlobalSettings.Options.Username) ? "Eon" : "In Eon logged as " + GlobalSettings.Options.Username
             },
 
             Buttons = new[]
