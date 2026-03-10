@@ -21,25 +21,27 @@ class EonRPC
         });
     }
 
-    private static void UpdatePresence()
+    public static void UpdatePresence()
     {
         if (!Client.IsInitialized)
             return;
 
         Client.SetPresence(new RichPresence
         {
-            State = "Chapter 2 Season 7 - OG Fortnite",
+            State = "Project Eon",
+            Details = "An OG Fortnite Experience",
             Timestamps = new Timestamps { Start = StartTimestamp },
 
             Assets = new Assets
             {
-                LargeImageKey = string.IsNullOrEmpty(GlobalSettings.Options.SkinUrl) ? "fn17" : GlobalSettings.Options.SkinUrl,
-                LargeImageText = string.IsNullOrEmpty(GlobalSettings.Options.Username) ? "Eon" : "In Eon logged as " + GlobalSettings.Options.Username
+                SmallImageKey = string.IsNullOrEmpty(GlobalSettings.Options.SkinUrl) ? "" : GlobalSettings.Options.SkinUrl,
+                LargeImageKey = "fn17",
+                LargeImageText = "Playing Eon."
             },
 
             Buttons = new[]
             {
-                new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord },
+                new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord + "?u=" + GlobalSettings.Options.Username},
             }
         });
     }
