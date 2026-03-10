@@ -41,8 +41,9 @@ class EonRPC
 
             Buttons = new[]
             {
-                new Button { Label = "Join Discord", Url = ProjectDefinitions.Discord + "?u=" + GlobalSettings.Options.Username},
+                new Button { Label = "Join Discord", Url = $"{ProjectDefinitions.Discord}?u={GlobalSettings.Options.Username}",
             }
+        }
         });
     }
 }
