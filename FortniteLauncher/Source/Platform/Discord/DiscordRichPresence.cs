@@ -33,7 +33,7 @@ class EonRPC
 
             Assets = new Assets
             {
-                LargeImageKey = "fn17",
+                LargeImageKey = string.IsNullOrEmpty(GlobalSettings.Options.SkinUrl) ? "fn17" : GlobalSettings.Options.SkinUrl,
                 LargeImageText = string.IsNullOrEmpty(GlobalSettings.Options.Username) ? "Eon" : "In Eon logged as " + GlobalSettings.Options.Username
             },
 
